@@ -22,6 +22,7 @@ Note: These instructions are for Ubuntu (Linux in general)
 
 ## Testing Qt and Pyglet
 The temporary test files are in psyduck directory. So first `cd` into the directory and then type:
+
 1. `python3 gui_test.py`
    You should see a blank blank window pop up.
 
