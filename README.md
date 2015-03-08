@@ -16,7 +16,7 @@ Note: These instructions are for Ubuntu (Linux in general)
 
 3. To install PyAudio, type `sudo apt-get install python-pyaudio`
 
-## Testing Qt and Pyglet
+## Testing Qt and PyAudio
 The temporary test files are in psyduck directory. So first `cd` into the directory and then type:
 
 1. `python gui_test.py`
