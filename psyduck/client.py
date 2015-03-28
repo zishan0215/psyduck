@@ -21,26 +21,36 @@ stream = p.open(format = FORMAT,
 
 # Socket Initialization
 host = 'localhost'
-port = 50000
+port = 50002
 size = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host,port))
 
+#window
+class Window(QtGui.QWidget):
+    def __init__(self):
+        QtGui.QWidget.__init__(self)
+        self.resize(250, 350)
+        self.move(700, 300)
+        self.setWindowTitle('Client')
+        self.button = QtGui.QPushButton('Call', self)
+        self.button.clicked.connect(self.handleButton)
+        layout = QtGui.QVBoxLayout(self)
+        layout.addWidget(self.button)
+
+    def handleButton(self):
+        while 1:
+            data = stream.read(chunk)
+            s.send(data)
+            s.recv(size)
+
 # Main Functionality
-while 1:
-    data = stream.read(chunk)
-    
-    if __name__ == '__main__':
-		app = QtGui.QApplication(sys.argv)
-		app.setStyle("cleanlooks")
-
-		listwidget = QtGui.QListWidget()
-		listwidget.show()
-
-		s.send(data)
-   		s.recv(size)
-
-		sys.exit(app.exec_())
+if __name__ == '__main__':
+    app = QtGui.QApplication(sys.argv)
+        
+    w = Window()
+    w.show()
+    sys.exit(app.exec_())
 
 s.close()
 stream.close()
