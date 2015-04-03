@@ -47,7 +47,7 @@ class Window(QtGui.QWidget):
 # Main Functionality
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
-        
+
     w = Window()
     w.show()
     sys.exit(app.exec_())
@@ -55,4 +55,3 @@ if __name__ == '__main__':
 s.close()
 stream.close()
 p.terminate()
-
