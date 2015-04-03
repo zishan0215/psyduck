@@ -1,6 +1,7 @@
 import pyaudio
 import socket
 import sys
+import thread
 
 # Pyaudio Initialization
 chunk = 1024
@@ -16,23 +17,31 @@ stream = p.open(format = FORMAT,
                 output = True)
 
 # Socket Initialization
-host = ''
-port = 50002
+
+host = socket.gethostname()
+port = 50000
 backlog = 5
 size = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host,port))
 s.listen(backlog)
 
-client, address = s.accept()
 
-# Main Functionality
-while 1:
-    data = client.recv(size)
-    if data:
-        # Write data to pyaudio stream
-        stream.write(data)  # Stream the recieved audio data
-        client.send('ACK')  # Send an ACK
+
+def socket_handler(socket):
+    # Main Functionality
+    while 1:
+        data = client.recv(size)
+        if data:
+            # Write data to pyaudio stream
+            stream.write(data)  # Stream the recieved audio data
+            client.send('ACK')  # Send an ACK
+
+while(1):
+    client, address = s.accept()
+    print 'Incoming connection'
+    thread.start_new_thread(socket_handler, (client,))
+
 
 client.close()
 stream.close()
