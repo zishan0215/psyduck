@@ -18,7 +18,8 @@ stream = p.open(format = FORMAT,
 
 # Socket Initialization
 
-host = socket.gethostname()
+# host = socket.gethostname()
+host = '10.0.0.6'
 port = 50000
 backlog = 5
 size = 1024

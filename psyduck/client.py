@@ -20,12 +20,13 @@ stream = p.open(format = FORMAT,
                 frames_per_buffer = chunk)
 
 # Socket Initialization
-host = socket.gethostname()
+# host = socket.gethostname()
+host = '10.0.0.9'
 port = 50000
 size = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host,port))
-# 
+#
 # #window
 # class Window(QtGui.QWidget):
 #     def __init__(self):
