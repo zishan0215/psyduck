@@ -2,7 +2,7 @@ import pyaudio
 import socket
 import sys
 import time
-from PyQt4 import QtGui, QtCore, uic
+# from PyQt4 import QtGui, QtCore, uic
 import sys
 
 # Pyaudio Initialization
