@@ -21,7 +21,7 @@ stream = p.open(format = FORMAT,
 
 # Socket Initialization
 # host = socket.gethostname()
-host = '10.0.0.9'
+host = '10.0.0.20'
 port = 50000
 size = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
